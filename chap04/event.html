@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h2></h2>
+        <script>
+            //key를 누르고 있으면 계속 실행이 되고. key를 때면 한번만 작동한다
+            // window.addEventListener('keyup', (event) => {
+            //     console.log('keyup', event);
+            // });
+            // window.addEventListener('keydown', (event) => {
+            //     console.log('keydown', event);
+            // });
+
+            //마우스를 어떻게 움직이는지에 따라 달라진다.
+            window.addEventListener('mousedown', (event) => {
+            console.log('mousdown', event);
+            });
+            window.addEventListener('mousemove', (event) => {
+                console.log('mousemove', event);
+            });
+            window.addEventListener('mouseup', (event) => {
+                console.log('mouseup', event);
+            });
+        </script>
+    </body>
+</html>

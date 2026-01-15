@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>() + () = ()</title>
+    </head>
+    <style>
+        .digit {
+            width: 100px;
+            text-align: right;
+        }
+    </style>
+    <body>
+        <h2>() + () = ()</h2>
+        <div>
+            <input class = "digit" id = "num1" type = "number"> +
+            <input class = "digit" id = "num2" type = "number">
+            <button id = "computer">=</button> 
+            <input id = "result" type = "number" disabled> 
+        </div>
+        <script>
+            // $button = document.querySelector('#computer');
+            // $button.addEventListener("click", () => {
+            //     let num1 = Number(document.querySelector('#num1').value);
+            //     let num2 = Number(document.querySelector('#num2').value);
+            //     document.querySelector('#result').value = num1 + num2;
+            // })
+
+            //함수를 밖으로 빼서 사용
+            const computeFn = () => {
+                let num1 = Number(document.querySelector('#num1').value);
+                let num2 = Number(document.querySelector('#num2').value);
+                document.querySelector('#result').value = num1 + num2;
+            } 
+            const onClickButton = computeFn;
+            $button = document.querySelector('button');
+            $button.addEventListener('click', onClickButton);
+        </script>
+    </body>
+</html>    

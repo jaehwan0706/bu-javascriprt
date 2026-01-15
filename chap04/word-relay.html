@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>끝말잇기</title>
+    </head>
+    <body>
+        <h2>끝말잇기</h2>
+        <div><span ID = "order">1</span>번째 참가자</div>
+        <div>제시어 : <span ID = "WORD">home</span></div>
+        <input type = "text">
+        <button class = "Hello">입력</button>
+        <button class = "Hello">버튼2</button>
+        <div id = "last"><button class = "Hello">버튼3</button></div>
+        <script>
+            // $$button = document.querySelector('button');
+            // console.log($$button);
+
+            // $order = document.querySelector('#order');
+            // console.log($order);
+            // $order.innerText = "2";
+            
+            //입력 버튼을 눌렀을때 번째 숫자가 2로 변경
+            // $button = document.querySelector('button');
+            // $button.addEventListener("click", () => {
+            //     $order = document.querySelector('#order');
+            //     console.log($order);
+            //     $order.innerText = "2";
+            // })
+            // console.log($$button);
+
+            // //입력 버튼을 눌렀을때 번째 숫자가 1.2.3....증가하게
+            //  $button = document.querySelector('button');
+            // $button.addEventListener("click", () => {
+            //     $order = document.querySelector('#order');
+            //     console.log($order);
+            //     $order.innerText = Number($order.innerText) + 1;
+            // })
+            // console.log($$button);
+
+            // //hello인 클래스를 모두 가져오기
+            // $$buttons = document.querySelectorAll('.hello');
+            // console.log($$buttons);
+
+            //번째 숫자 늘리고 hello인 클래스 모두 불러오라
+            // $button = document.querySelector('button');
+            // $button.addEventListener("click", () => {
+            //     $order = document.querySelector('#order');
+            //     console.log($order);
+            //     $order.innerText = Number($order.innerText) + 1;
+            //     $$buttons = document.querySelectorAll('.hello');
+            //     $$buttons.forEach((button) => {console.log(button)});
+            // })ㅕ
+            // console.log($$button);
+
+            //<div>안에 class가 hello 것만 불러오라
+            // $button = document.querySelector('button');
+            // $button.addEventListener("click", () => {
+            //     $order = document.querySelector('#order');
+            //     console.log($order);
+            //     $order.innerText = Number($order.innerText) + 1;
+            //     $$buttons = document.querySelectorAll('.hello');
+            //     $$buttons.forEach((button) => {console.log(button)});
+            // })
+            // console.log(document.querySelector('div button'));
+
+            //입력 버튼을 버튼1로 바꾸기
+            // $button = document.querySelector('button');
+            // $button.addEventListener("click", () => {
+            //     $button.textContent = "버튼 1";
+            // })
+            
+            $button = document.querySelector('button');
+            $button.addEventListener("click", () => {
+                $button.textContent = "버튼 1";
+                console.log(document.querySelector('input').value);
+            })
+            
+        </script>
+    </body>
+</html>

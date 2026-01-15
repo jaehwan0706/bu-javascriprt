@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>eventbubbling</title>
+    </head>
+    <style>
+        .digit{
+            width: 100px;
+        }
+    </style>
+    <body>
+        <h2>eventbubbling</h2>
+        <div style = "width: 20px; height: 20px; background-color: red;"></div>
+        <input class = "digit" id = "value" readonly> <p></p>
+        <table border = "1" style = "border-collapse:collapse">
+            <tr>
+                <td id = "id1">1</td>
+                <td id = "id2">2</td>
+                <td id = "id3">3</td>
+            </tr>
+            <tr>
+                <td id = "id4">4</td>
+                <td id = "id5">5</td>
+                <td id = "id6">6</td>
+            </tr>
+            <tr>
+                <td id = "id7">7</td>
+                <td id = "id8">8</td>
+                <td id = "id9">9</td>
+            </tr>
+        </table>
+        <script>
+            // document.querySelector('td'), addEventListener('click', (e) => {
+            //     //console.log('td를 클릭했습니다.');
+            //     //console.log('td', e);
+            //     console.log('td', e.target.innerText);
+            // })
+            // document.querySelector('tr'), addEventListener('click', (e) => {
+            //     //console.log('tr를 클릭했습니다.');
+            //     //console.log('tr', e);
+            //     console.log('tr', e.target.innerText);
+            // })
+            // document.querySelector('table'), addEventListener('click', (e) => {
+            //     //console.log('table를 클릭했습니다.');
+            //     //console.log('table', e);
+            //     console.log('table', e.target.innerText);
+            //})
+
+            // let value = '';
+            // document.querySelector('#id1').addEventListener('click', (e) => {
+            //     value = value + '1';
+            //     document.querySelector('input').value = value;
+            // })
+            // document.querySelector('#id2').addEventListener('click', (e) => {
+            //     value = value + '2';
+            //     document.querySelector('input').value = value;
+            // })
+            // document.querySelector('#id3').addEventListener('click', (e) => {
+            //     value = value + '3';
+            //     document.querySelector('input').value = value;
+            // })
+            // document.querySelector('#id4').addEventListener('click', (e) => {
+            //     value = value + '4';
+            //     document.querySelector('input').value = value;
+            // })
+            // document.querySelector('#id5').addEventListener('click', (e) => {
+            //     value = value + '5';
+            //     document.querySelector('input').value = value;
+            // })
+            // document.querySelector('#id6').addEventListener('click', (e) => {
+            //     value = value + '6';
+            //     document.querySelector('input').value = value;
+            // })
+            // document.querySelector('#id7').addEventListener('click', (e) => {
+            //     value = value + '7';
+            //     document.querySelector('input').value = value;
+            // })
+            // document.querySelector('#id8').addEventListener('click', (e) => {
+            //     value = value + '8';
+            //     document.querySelector('input').value = value;
+            // })
+            // document.querySelector('#id9').addEventListener('click', (e) => {
+            //     value = value + '9';
+            //     document.querySelector('input').value = value;
+            // })
+
+            //eventbubbling이 되기 때문에 위처럼 9개 쓸 필요없이 아래처럼 작성 가능
+            let value = '';
+            document.querySelector('table').addEventListener('click', (e) => {
+                value = value + e.target.innerText;
+                document.querySelector('input').value = value;
+            })
+        </script>
+    </body>
+</html>
