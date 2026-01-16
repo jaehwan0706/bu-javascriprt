@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>원 키우기 게임</title>
+</head>
+<style>
+    .digit{
+        width: 100px;
+    }
+    div{
+        left: 0px;
+        y: 0px;
+        position: absolute;
+        width: 20px; 
+        height: 20px; 
+        border-radius: 10px;   
+        background-color: red;
+    }
+    /* 플레이어 */
+    .red {
+        background-color: red;
+    }
+
+    /* 생성 원 */
+    .blue {
+        background-color: blue;
+    }
+    </style>
+<body>
+    <script>
+        const xStep = 20;
+        const yStep = 20;
+        let xMove = 0;
+        let yMove = 0;
+        let left = 0;
+        let y = 0;
+
+        //플레이어 생성
+        const $player = document.createElement('div');
+        $player.classList.add('red');
+        $player.style.left = left + "px";
+        $player.style.top = y + "px";
+        document.body.appendChild($player);
+
+        //랜덤 원 생성
+        const makeCricle = () => {
+        let $player = document.createElement('div');
+        $player.classList = 'blue show';
+        let randomx = Math.floor(Math.random() * 30);
+        let randomy = Math.floor(Math.random() * 20);
+        $player.style.left = randomx + "px";
+        $player.style.top = randomy + "px";
+        document.body.appendChild($player);
+        }
+        setInterval(makeCricle, 5000);
+
+        //플레이어 원 생성
+        const keepGo = () => {
+            left = left + xMove;
+            y = y + yMove;
+            $player.style.left = left + "px";
+            $player.style.top = y + "px";
+        }
+        setInterval(keepGo, 100);
+
+        //방향키에 따라 위치가 달라진다
+        window.addEventListener("keydown", (event) => {
+            switch(event.key ) {
+                case 'ArrowRight':
+                    xMove = xStep;
+                    yMove = 0;
+                    break;
+                case 'ArrowLeft':
+                    xMove = -xStep;
+                    yMove = 0;
+                    break;
+                case 'ArrowUp':
+                    xMove = 0;
+                    yMove = -yStep;
+                    break;
+                case 'ArrowDown':
+                    xMove = 0;
+                    yMove = yStep;
+                break;
+            }
+        });
+        </script>
+</body>
+</html>

@@ -9,8 +9,12 @@
             width: 100px;
         }
         div{
+            left: 0px;
+            y: 0px;
+            position: absolute;
             width: 20px; 
             height: 20px; 
+            border-radius: 10px;   
             background-color: red;
         }
     </style>
@@ -18,37 +22,140 @@
         <div></div>
         <script>
             $div = document.querySelector('div');
+            let left = 0; //x값
+            let y = 0; //y값
             let width = 20;
             let height = 20;
-            const zoomFn = () => {
-                width ++; height ++;
-                $div.style.width = width + "px";
-                $div.style.height = height + "px";
-                console.log(width, height);
-            }
+            //크기 조절에 사용
+            // const zoomFn = () => {
+            //     width ++; height ++;
+            //     $div.style.width = width + "px";
+            //     $div.style.height = height + "px";
+            //     console.log(width, height);
+            // }
             //setInterval(zoomFn, 100);
 
             //방향키에 따라 크기가 달라진다
+            // window.addEventListener("keydown", (event) => {
+            //     switch(event.key ) {
+            //         case 'ArrowRight':
+            //             width ++;
+            //             $div.style.width = width + "px";
+            //             break;
+            //         case 'ArrowLeft':
+            //             width --;
+            //             $div.style.width = width + "px";
+            //             break;
+            //         case 'ArrowUp':
+            //             height --;
+            //             $div.style.height = height + "px";
+            //             break;
+            //         case 'ArrowDown':
+            //             height ++;
+            //             $div.style.height = height + "px";
+            //             break;
+            //     }
+            // });
+
+            //박스 상자 위치 변경하기
+            // let show = true;
+            //  window.addEventListener("keydown", (event) => {
+            //     switch(event.key ) {
+            //         case '':
+            //             if(show){
+            //                 $div.className = 'hide'
+            //             }else{
+            //                 $div.className = 'show'
+            //             }
+            //             show = !show;
+            //             break;
+            //         case 'ArrowRight':
+            //             left ++;
+            //             $div.style.left = left + "px";
+            //             break;
+            //         case 'ArrowLeft':
+            //             left --;
+            //             $div.style.left = left + "px";
+            //             break;
+            //         case 'ArrowUp':
+            //             y --;
+            //             $div.style.top = y + "px";
+            //             break;
+            //         case 'ArrowDown':
+            //             y ++;
+            //             $div.style.top = y + "px";
+            //             break;
+            //     }
+            // });
+
+            //마우스를 클릭하면 클릭하는 위치로 이동 + 키보드를 누르면 위치가 이동
+            // window.addEventListener("mousedown", (event) => {
+            //     console.log(event.clientX, event.clientY)
+            //     $div.style.left = left + "px";
+            //     $div.style.top = y + "px";
+            //     left = event.clientX -20 ;
+            //     y = event.clientY - 20;
+            // })
+            // let show = true;
+            // window.addEventListener("keydown", (event) => {
+            //     switch(event.key ) {
+            //         case '':
+            //             if(show){
+            //                  $div.className = 'hide'
+            //             }else{
+            //                 $div.className = 'show'
+            //             }
+            //             show = !show;
+            //             break;
+            //         case 'ArrowRight':
+            //             left ++;
+            //             $div.style.left = left + "px";
+            //             break;
+            //         case 'ArrowLeft':
+            //             left --;
+            //             $div.style.left = left + "px";
+            //             break;
+            //         case 'ArrowUp':
+            //             y --;
+            //             $div.style.top = y + "px";
+            //             break;
+            //         case 'ArrowDown':
+            //             y ++;
+            //             $div.style.top = y + "px";
+            //             break;
+            //     }
+            // // });
+
+            // 클릭으로 클릭 위치에 상자 추가 
+            $div.classList.add('show')
+            window.addEventListener("mousedown", (event) => {
+                console.log(event.clientX, event.clientY);
+                event.preventDefault();
+                $div = document.createElement('div');
+                left = event.clientX - 10 ;
+                y = event.clientY -  10;
+                $div.style.left = left + "px";
+                $div.style.top = y + "px";
+                document.body.appendChild($div);
+            })
+            let show = true;
             window.addEventListener("keydown", (event) => {
+                event.preventDefault();
                 switch(event.key ) {
-                    case 'ArrowRight':
-                        width ++;
-                        $div.style.width = width + "px";
-                        break;
-                    case 'ArrowLeft':
-                        width --;
-                        $div.style.width = width + "px";
-                        break;
-                    case 'ArrowUp':
-                        height --;
-                        $div.style.height = height + "px";
-                        break;
-                    case 'ArrowDown':
-                        height ++;
-                        $div.style.height = height + "px";
-                        break;
+                    case ' ':
+                        let $divList = Array.from(document.body.children);
+                        $divList.forEach(($div) => {
+                            if ($div.classList.contains('show')) {
+                                $div.classList.replace('show', 'hide');
+                            } else{
+                                $div.classList.replace('hide', 'show');
+                            }
+                        });
+                    break;
                 }
-            });
+            }); 
+
+           
         </script>
     </body>
 </html>
